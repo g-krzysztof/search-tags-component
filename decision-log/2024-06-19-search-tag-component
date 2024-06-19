@@ -1,0 +1,24 @@
+# Search Tag component
+
+---
+
+## 19.06.2024
+
+---
+
+### decyzje podjął: Krzysztof Gryc
+
+---
+
+#### boilerplate
+
+Wybrałem next.js ze względu na to, że jest to jeden z najbardziej popularnych frameworków pod react, domyślnie też wspiera typescript.
+
+#### ikony
+
+W komponencie jest używanych kilka ikon. Dodałem do projektu kilka podobnych. Gdybym miał dostęp do projektu (np. w figmie), spopiowałbym je, żeby uzyskać efekt pixel perfect. Uznałem że podobne wystarczą, można je łatwo podmienić.
+
+#### style
+
+Odnośnie stylowania komponentów, jest obecnie co najmniej kilka popularnych rozwiązań. Zdecydowałem się na styled components wraz styled-system. Na ich podstawie można wygodnie rozwijać bibliotekę komponentów, oraz wykorzystać do tego celu np. storybooka.
+
