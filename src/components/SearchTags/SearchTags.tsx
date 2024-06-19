@@ -1,21 +1,7 @@
-import { Box, Text, Divider, Chip, IconButton } from '../../ui'
+import { Box, Text, Divider, Chip, IconButton, ContextMenuItem } from '../../ui'
+import { chipsItems, contextMenuItems } from '@/lib/dummyData'
 
 export interface SearchTagsProps {}
-
-const chipsItems = [
-  {
-    chipId: 'chip01',
-    label: 'Gwiazda',
-  },
-  {
-    chipId: 'chip02',
-    label: 'Sejm',
-  },
-  {
-    chipId: 'chip03',
-    label: 'Mariusz Kamiński',
-  },
-]
 
 const SearchTags: React.FC<SearchTagsProps> = () => {
   return (
@@ -48,6 +34,19 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
           </Box>
         ))}
       </Box>
+      <Divider color="grayLight" />
+      <Box py="xxs" display="flex" flexDirection="column">
+        {contextMenuItems.map(({ cmItemId, iconName, label, active }) => (
+          <ContextMenuItem
+            key={cmItemId}
+            label={label}
+            onClick={() => console.log({ label })}
+            iconName={iconName}
+            active={active}
+          />
+        ))}
+      </Box>
+
       <Divider color="grayLight" />
     </Box>
   )
