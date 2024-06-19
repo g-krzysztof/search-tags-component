@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, Text, Icon, IconButton } from '@/src/ui'
 import styled from 'styled-components'
 
-interface SearchInputProps {}
-export const SearchInput: React.FC<SearchInputProps> = () => {
-  const [inputValue, setInputValue] = useState('')
-
+interface SearchInputProps {
+  inputValue: string
+  setInputValue: (value: string) => void
+}
+export const SearchInput: React.FC<SearchInputProps> = ({
+  inputValue,
+  setInputValue,
+}) => {
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center">
       <Box display="flex" alignItems="center">

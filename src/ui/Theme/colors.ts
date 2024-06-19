@@ -2,6 +2,7 @@ import { Colors } from './interfaces'
 
 export const colors: Colors = {
   blue: '#2463ec',
+  blueDark: '#0a3baf',
   redDark: '#c22f3f',
   redLight: '#ff686f',
   greenDark: '#3b8b58',

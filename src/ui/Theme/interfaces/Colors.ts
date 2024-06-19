@@ -1,5 +1,6 @@
 export interface Colors {
   blue: string
+  blueDark: string
   redDark: string
   redLight: string
   greenDark: string
