@@ -8,13 +8,18 @@ import {
   flexbox,
   position,
   typography,
+  border,
+  borderRadius,
   LayoutProps,
   PositionProps,
   ColorProps,
   SpaceProps,
   FlexboxProps,
   TypographyProps,
+  BorderProps,
+  BorderRadiusProps,
 } from 'styled-system'
+import { Borders, Radii, Space } from '@/src/ui/Theme/interfaces'
 
 interface BoxProps
   extends PositionProps,
@@ -22,8 +27,23 @@ interface BoxProps
     ColorProps,
     SpaceProps,
     FlexboxProps,
-    TypographyProps {
+    TypographyProps,
+    BorderProps,
+    BorderRadiusProps {
   children: React.ReactNode
+  border?: keyof Borders
+  borderRadius?: keyof Radii
+  p?: keyof Space
+  px?: keyof Space
+  py?: keyof Space
+  pl?: keyof Space
+  pr?: keyof Space
+  pt?: keyof Space
+  pb?: keyof Space
+  m?: keyof Space
+  mx?: keyof Space
+  mt?: keyof Space
+  mb?: keyof Space
 }
 
 const ContainerBox = styled.div<BoxProps>`
@@ -33,6 +53,8 @@ const ContainerBox = styled.div<BoxProps>`
   ${flexbox};
   ${position};
   ${typography};
+  ${border};
+  ${borderRadius};
 `
 
 export const Box: React.FC<BoxProps> = ({ children, ...props }) => {

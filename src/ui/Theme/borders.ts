@@ -3,5 +3,6 @@ import { colors } from './colors'
 
 export const borders: Borders = {
   // solid
-  grayMedium: `1px solid ${colors.grayMedium}`,
+  grayLight: `2px solid ${colors.grayLight}`,
+  grayMedium: `2px solid ${colors.grayMedium}`,
 }

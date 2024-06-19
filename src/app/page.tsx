@@ -1,27 +1,67 @@
 'use client'
 
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyle, theme, Box, Icon } from '../ui/'
+import { GlobalStyle, theme, Box } from '../ui/'
+import { SideMenuProps } from '@/src/components/SideMenu/SideMenu'
+import { StyleSheetManager } from 'styled-components'
+import isPropValid from '@emotion/is-prop-valid'
+import SideMenu from '@/src/components/SideMenu/SideMenu'
+import SearchTags from '@/src/components/SearchTags/SearchTags'
+
+const menuItems: SideMenuProps['menuItems'] = [
+  {
+    itemId: '01',
+    iconName: 'info',
+  },
+  {
+    itemId: '02',
+    iconName: 'chat',
+  },
+  {
+    itemId: '03',
+    iconName: 'gear',
+  },
+  {
+    itemId: '04',
+    iconName: 'tag',
+    active: true,
+  },
+  {
+    itemId: '05',
+    iconName: 'user',
+  },
+]
+
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Box display="flex" justifyContent="center">
-        Hello world
-        <Icon iconName="info" color="black" />
-        <Icon iconName="gear" color="blue" />
-        <Icon iconName="tag" color="redDark" />
-        <Icon iconName="user" color="greenLight" />
-        <Icon iconName="chat" color="purple" />
-        <Icon iconName="search" color="redLight" />
-        <Icon iconName="close" color="greenDark" />
-        <Icon iconName="infoRound" color="black" />
-        <Icon iconName="closeRound" color="blue" />
-        <Icon iconName="tagPopular" color="redDark" />
-        <Icon iconName="ai" color="greenLight" />
-        <Icon iconName="aiFill" color="greenDark" />
-        <Icon iconName="check" color="purple" />
-      </Box>
-    </ThemeProvider>
+    <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Box display="flex" pl="xxxxl">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="flex-start"
+            pt="xxxxl"
+            width="264px"
+          >
+            <SideMenu menuItems={menuItems} />
+            <Box pl="xs">
+              <SearchTags />
+            </Box>
+          </Box>
+        </Box>
+      </ThemeProvider>
+    </StyleSheetManager>
   )
+}
+
+// @ts-ignore
+function shouldForwardProp(propName, target) {
+  if (typeof target === 'string') {
+    // For HTML elements, forward the prop if it is a valid HTML attribute
+    return isPropValid(propName)
+  }
+  // For other elements, forward all props
+  return true
 }
