@@ -1,2 +1,6 @@
 export * from './Box'
 export * from './Icons'
+export * from './Text'
+export * from './Divider'
+export * from './Chip'
+export * from './IconButton'

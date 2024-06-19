@@ -44,6 +44,7 @@ interface BoxProps
   mx?: keyof Space
   mt?: keyof Space
   mb?: keyof Space
+  onClick?: () => void
 }
 
 const ContainerBox = styled.div<BoxProps>`

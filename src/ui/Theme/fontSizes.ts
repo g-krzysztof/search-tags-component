@@ -6,6 +6,7 @@ import { FontSizes } from './interfaces'
 export const fontSizes: FontSizes = {
   xs: 10,
   s: 12,
+  xm: 13,
   m: 14,
   l: 16,
   xl: 18,
