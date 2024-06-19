@@ -24,7 +24,6 @@ export const ContextMenuItem: React.FC<ChipProps> = ({
       display="flex"
       justifyContent="flex-start"
       alignItems="center"
-      width="190px"
     >
       <Box pl="xxxs" pr="xxs" onClick={onClick}>
         <Icon

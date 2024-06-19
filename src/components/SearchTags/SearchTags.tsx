@@ -1,5 +1,9 @@
 import { Box, Text, Divider, Chip, IconButton } from '../../ui'
-import { ContextMenuItem, StrengthProgress } from '@/src/components'
+import {
+  ContextMenuItem,
+  StrengthProgress,
+  SearchInput,
+} from '@/src/components'
 import { chipsItems, contextMenuItems } from '@/lib/dummyData'
 
 export interface SearchTagsProps {}
@@ -24,6 +28,9 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
           onClick={() => console.log('close tags')}
         />
       </Box>
+      <Box px="xxs" pt="xs" pb="s">
+        <SearchInput />
+      </Box>
       <Divider color="grayLight" />
       <Box display="flex" pt="xxs" pb="xxxs" flexWrap="wrap">
         {chipsItems.map(({ chipId, label }) => (
@@ -36,7 +43,12 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
         ))}
       </Box>
       <Divider color="grayLight" />
-      <Box py="xxs" display="flex" flexDirection="column">
+      <Box
+        py="xxs"
+        display="flex"
+        flexDirection="column"
+        alignItems="flex-start"
+      >
         {contextMenuItems.map(({ cmItemId, iconName, label, active }) => (
           <ContextMenuItem
             key={cmItemId}
