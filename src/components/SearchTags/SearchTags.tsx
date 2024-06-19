@@ -1,4 +1,5 @@
-import { Box, Text, Divider, Chip, IconButton, ContextMenuItem } from '../../ui'
+import { Box, Text, Divider, Chip, IconButton } from '../../ui'
+import { ContextMenuItem, StrengthProgress } from '@/src/components'
 import { chipsItems, contextMenuItems } from '@/lib/dummyData'
 
 export interface SearchTagsProps {}
@@ -11,7 +12,7 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
       border="grayLight"
       borderRadius="rounded"
       p="xxs"
-      width="264px"
+      width="268px"
     >
       <Box display="flex" justifyContent="space-between" p="xxs">
         <Text fontSize="xl" color="black" fontWeight="bold">
@@ -46,8 +47,8 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
           />
         ))}
       </Box>
-
       <Divider color="grayLight" />
+      <StrengthProgress tagsArray={chipsItems} />
     </Box>
   )
 }

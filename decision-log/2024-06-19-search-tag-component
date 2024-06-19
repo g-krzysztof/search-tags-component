@@ -22,6 +22,8 @@ W komponencie jest używanych kilka ikon. Dodałem do projektu kilka podobnych. 
 
 Odnośnie stylowania komponentów, jest obecnie co najmniej kilka popularnych rozwiązań. Zdecydowałem się na styled components wraz styled-system. Na ich podstawie można wygodnie rozwijać bibliotekę komponentów, oraz wykorzystać do tego celu np. storybooka.
 
+Także ze względu na brak plików źródłowych, czcionka została dobrałem intuicyjnie zbliżoną.
+
 #### interakcje onClick
 
 Ponieważ komponenty są prezentowane w wyizolowanej formie, wiele kliknięć wywowuje zdarzenia console.log, które można śledzić w consoli, w narzędziach developerskich.

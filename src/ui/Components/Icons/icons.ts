@@ -51,6 +51,10 @@ const icons = {
     viewBox: '0 0 24 24',
     path: 'M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z',
   },
+  progressBar: {
+    viewBox: '0 0 24 24',
+    path: 'm 3,11 v 2 c 0,1.1 0.9,2 2,2 h 14 c 1.1,0 2,-0.9 2,-2 V 11 C 21,9.9 20.1,9 19,9 H 5 C 3.9,9 3,9.9 3,11',
+  },
 }
 
 export default icons

@@ -3,16 +3,28 @@ import icons from '@/src/ui/Components/Icons/icons'
 export const chipsItems = [
   {
     chipId: 'chip01',
-    label: 'Gwiazda',
+    label: 'Maryla Rodowicz',
   },
   {
     chipId: 'chip02',
-    label: 'Sejm',
+    label: 'Gwiazda',
   },
   {
     chipId: 'chip03',
-    label: 'Mariusz Kamiński',
+    label: 'Sejm',
   },
+  // {
+  //   chipId: 'chip04',
+  //   label: 'Mariusz Kamiński',
+  // },
+  // {
+  //   chipId: 'chip05',
+  //   label: 'Polska muzyka',
+  // },
+  // {
+  //   chipId: 'chip06',
+  //   label: 'Ikona popkultury',
+  // },
 ]
 
 export const contextMenuItems: {

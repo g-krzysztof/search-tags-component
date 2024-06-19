@@ -1,7 +1,5 @@
 import React from 'react'
-import { Box } from '../Box'
-import { Text } from '../Text'
-import { Icon } from '../Icons/Icon'
+import { Box, Text, Icon } from '@/src/ui'
 import icons from '@/src/ui/Components/Icons/icons'
 import styled from 'styled-components'
 
