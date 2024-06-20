@@ -6,7 +6,7 @@ import { Text } from '../Text'
 
 interface CheckboxProps {
   isChecked: boolean
-  setIsChecked: (isChecked: boolean) => void
+  onClick: () => void
   label?: string
 }
 
@@ -21,7 +21,7 @@ const ContainerCheckbox = styled(Box)<{ isChecked: boolean }>`
 
 export const Checkbox: React.FC<CheckboxProps> = ({
   isChecked,
-  setIsChecked,
+  onClick,
   label,
 }) => {
   return (
@@ -29,7 +29,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       display="flex"
       justifyContent="flex-start"
       alignItems="center"
-      onClick={() => setIsChecked(!isChecked)}
+      onClick={() => onClick()}
     >
       <ContainerCheckbox
         isChecked={isChecked}

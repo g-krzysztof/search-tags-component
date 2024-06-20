@@ -9,17 +9,19 @@ import { useEffect, useState } from 'react'
 import { Box, Button, Chip, Divider, IconButton, Text } from '../../ui'
 export interface SearchTagsProps {}
 
-interface Tag {
+export interface TagProps {
   tagId: string
   label: string
   score: string
+  selected?: boolean
 }
 
 const SearchTags: React.FC<SearchTagsProps> = () => {
   const [inputValue, setInputValue] = useState('')
   const [activeTags, setActiveTags] = useState(activeTagsMock)
-  const [tagsData, setTagsData] = useState<Tag[]>([])
-  const [listAvailableTags, setListAvailableTags] = useState<Tag[]>([])
+  const [tagsData, setTagsData] = useState<TagProps[]>([])
+  const [listAvailableTags, setListAvailableTags] = useState<TagProps[]>([])
+  const [selectedTags, setSelectedTags] = useState<TagProps[]>([])
 
   useEffect(() => {
     fetch('data.json', {
@@ -52,6 +54,18 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
   const handleRemoveActiveTag = (tagId: string) => {
     const newTagsArray = [...activeTags]
     setActiveTags(newTagsArray.filter((tag) => tag.tagId !== tagId))
+  }
+
+  const handleSaveOnClick = () => {
+    const newActiveTagsArray = [...activeTags]
+    const newSelectedTagsArray = [...selectedTags]
+    newSelectedTagsArray.forEach((tag) => {
+      tag.selected = false
+      newActiveTagsArray.unshift(tag)
+    })
+    setActiveTags(newActiveTagsArray)
+    setSelectedTags([])
+    setInputValue('')
   }
 
   return (
@@ -122,12 +136,12 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
       {inputValue && (
         <Box display="flex" flexDirection="column">
           <Box display="flex" flexDirection="column" py="xxs">
-            {listAvailableTags.map(({ tagId, label, score }) => (
+            {listAvailableTags.map((tag) => (
               <SearchItem
-                key={tagId}
-                label={label}
-                tagId={tagId}
-                score={score}
+                key={tag.tagId}
+                tag={tag}
+                selectedTags={selectedTags}
+                setSelectedTags={setSelectedTags}
               />
             ))}
           </Box>
@@ -135,8 +149,8 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
             <Box>
               <Button
                 label="Zapisz"
-                active={true}
-                onClick={() => console.log('zapisz')}
+                active={selectedTags.length > 0}
+                onClick={() => handleSaveOnClick()}
               />
             </Box>
           </Box>
