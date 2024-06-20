@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders Button unchanged 1`] = `
+<div>
+  <div
+    alignitems="center"
+    borderradius="rounded"
+    class="sc-8b3de090-0 pfEju sc-356cdfa7-0 fXPOIS"
+    display="flex"
+    justifycontent="center"
+    py="xxs"
+  >
+    <div
+      class="sc-5a158f7a-0 fQHTZO"
+      color="black"
+      font-size="s"
+      font-weight="medium"
+    >
+      Test Button
+    </div>
+  </div>
+</div>
+`;

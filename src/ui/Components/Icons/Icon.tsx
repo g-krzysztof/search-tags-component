@@ -24,6 +24,7 @@ export const Icon: FC<Icon> = ({
       display="flex"
       justifyContent="center"
       alignItems="center"
+      data-testid={iconName}
     >
       <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox={viewBox}>
         <path fill="currentColor" d={path} />

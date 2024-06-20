@@ -21,3 +21,7 @@ W komponencie jest używanych kilka ikon. Dodałem do projektu kilka podobnych. 
 #### style
 
 Odnośnie stylowania komponentów, jest obecnie co najmniej kilka popularnych rozwiązań. Zdecydowałem się na styled components wraz ze styled-system. Na ich podstawie można wygodnie rozwijać bibliotekę komponentów, oraz wykorzystać do tego celu np. storybooka.
+
+#### testy
+
+Dodałem kilka testów integracyjnych dla podstawowych komponentów ui. Wybrałem standardową bibliotekę - react testing librarty wraz z jest.
