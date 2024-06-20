@@ -1,10 +1,12 @@
-import { activeTagsMock, contextMenuItemsMock } from '@/lib/dummyData'
+import { contextMenuItemsMock } from '@/lib/dummyData'
 import {
   ContextMenuItem,
   SearchInput,
   SearchItem,
   StrengthProgress,
 } from '@/src/components'
+import { Character, searchCharacters } from '@/utils/api'
+import useDebounce from '@/utils/useDebounce'
 import { useEffect, useState } from 'react'
 import { Box, Button, Chip, Divider, IconButton, Text } from '../../ui'
 export interface SearchTagsProps {}
@@ -16,28 +18,46 @@ export interface TagProps {
   selected?: boolean
 }
 
+const marvelToTags = (data: Character[]) => {
+  const newDataArray = [...data]
+  return newDataArray.map((character) => {
+    return {
+      tagId: character.id,
+      label: character.name,
+      score: character.events.available,
+    }
+  })
+}
+
 const SearchTags: React.FC<SearchTagsProps> = () => {
   const [inputValue, setInputValue] = useState('')
-  const [activeTags, setActiveTags] = useState(activeTagsMock)
+  const [activeTags, setActiveTags] = useState<TagProps[]>([])
   const [tagsData, setTagsData] = useState<TagProps[]>([])
   const [listAvailableTags, setListAvailableTags] = useState<TagProps[]>([])
   const [selectedTags, setSelectedTags] = useState<TagProps[]>([])
 
-  useEffect(() => {
-    fetch('data.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (tagsData) {
-        const newTagsDataArray = [...tagsData.tags]
-        setTagsData(newTagsDataArray)
-      })
-  }, [])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  useDebounce(
+    () => {
+      const fetchData = async () => {
+        setIsLoading(true)
+        try {
+          const data = await searchCharacters(inputValue)
+          setTagsData(marvelToTags(data.results))
+        } catch (error) {
+          console.error(error)
+        }
+        setIsLoading(false)
+      }
+
+      if (inputValue && inputValue.length > 2) {
+        fetchData()
+      }
+    },
+    [inputValue],
+    500,
+  )
 
   useEffect(() => {
     const activeTagsIds = activeTags.map((tag) => tag.tagId)
@@ -133,7 +153,14 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
           <StrengthProgress tagsArray={activeTags} />
         </>
       )}
-      {inputValue && (
+      {inputValue && isLoading && (
+        <Box p="xxs">
+          <Text fontSize="s" fontWeight="medium" color="greenDark">
+            ładowanie danych...
+          </Text>
+        </Box>
+      )}
+      {inputValue && !isLoading && (
         <Box display="flex" flexDirection="column">
           <Box display="flex" flexDirection="column" py="xxs">
             {listAvailableTags.map((tag) => (

@@ -17,7 +17,8 @@
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6.1.11",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "ts-md5": "^1.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",
