@@ -15,11 +15,15 @@ interface TextProps extends ColorProps, TypographyProps {
   fontWeight?: keyof FontWeights
   lineHeight?: keyof LineHeights
   color?: keyof Colors
+  oneLine?: boolean
 }
 
 const ContainerText = styled.div<TextProps>`
   ${color};
   ${typography};
+  ${({ oneLine }) =>
+    oneLine &&
+    `white-space: nowrap; overflow: hidden; text-overflow: ellipsis;`};
 `
 
 export const Text: React.FC<TextProps> = ({ children, ...props }) => {

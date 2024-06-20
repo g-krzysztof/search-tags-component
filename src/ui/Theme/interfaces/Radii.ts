@@ -1,5 +1,5 @@
 export interface Radii {
-  rectangle: number
+  rectangle: string
   rounded: string
   fullRounded: string
 }

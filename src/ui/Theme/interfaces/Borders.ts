@@ -4,4 +4,6 @@ export interface Borders {
   grayLightThin: string
   grayMedium: string
   grayMediumThin: string
+  blueMedium: string
+  whiteMedium: string
 }

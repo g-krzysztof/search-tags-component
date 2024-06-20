@@ -1,16 +1,47 @@
-import { Box, Text, Divider, Chip, IconButton, Button } from '../../ui'
+import {
+  Box,
+  Text,
+  Divider,
+  Chip,
+  IconButton,
+  Button,
+  Checkbox,
+} from '../../ui'
 import {
   ContextMenuItem,
   StrengthProgress,
   SearchInput,
+  SearchItem,
 } from '@/src/components'
 import { chipsItems, contextMenuItems } from '@/lib/dummyData'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
 export interface SearchTagsProps {}
 
 const SearchTags: React.FC<SearchTagsProps> = () => {
   const [inputValue, setInputValue] = useState('testFill')
+  const [tagsData, setTagsData] = useState<
+    {
+      tagId: string
+      label: string
+      score: string
+    }[]
+  >([])
+
+  useEffect(() => {
+    fetch('data.json', {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (tagsData) {
+        setTagsData(tagsData.tags)
+      })
+  }, [])
+
   return (
     <Box
       display="flex"
@@ -68,12 +99,26 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
         </>
       )}
       {inputValue && (
-        <Box>
-          <Button
-            label="Zapisz"
-            active={true}
-            onClick={() => console.log('zapisz')}
-          />
+        <Box display="flex" flexDirection="column">
+          <Box display="flex" flexDirection="column" py="xxs">
+            {tagsData.map(({ tagId, label, score }) => (
+              <SearchItem
+                key={tagId}
+                label={label}
+                tagId={tagId}
+                score={score}
+              />
+            ))}
+          </Box>
+          <Box display="flex" flexDirection="column">
+            <Box>
+              <Button
+                label="Zapisz"
+                active={true}
+                onClick={() => console.log('zapisz')}
+              />
+            </Box>
+          </Box>
         </Box>
       )}
     </Box>

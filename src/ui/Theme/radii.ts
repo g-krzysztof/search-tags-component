@@ -1,7 +1,7 @@
 import { Radii } from './interfaces'
 
 export const radii: Radii = {
-  rectangle: 0,
+  rectangle: '4px',
   rounded: '8px',
   fullRounded: '50%',
 }

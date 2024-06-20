@@ -7,4 +7,6 @@ export const borders: Borders = {
   grayLightThin: `1px solid ${colors.grayLight}`,
   grayMedium: `2px solid ${colors.grayMedium}`,
   grayMediumThin: `1px solid ${colors.grayMedium}`,
+  blueMedium: `2px solid ${colors.blue}`,
+  whiteMedium: `2px solid ${colors.white}`,
 }

@@ -27,3 +27,7 @@ Także ze względu na brak plików źródłowych, czcionka została dobrałem in
 #### interakcje onClick
 
 Ponieważ komponenty są prezentowane w wyizolowanej formie, wiele kliknięć wywowuje zdarzenia console.log, które można śledzić w consoli, w narzędziach developerskich.
+
+#### źródło danych
+
+Założyłem że lista dostępnych tagów jest przechowywana w jakimś narzędziu do przechowywania stanu. Na wypadek odpytywania API, należy wymiennie zastosować hook np. useQuery.
