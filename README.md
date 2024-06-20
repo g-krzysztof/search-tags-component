@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a demo search tags component powered by [Next.js]
 
 ## Getting Started
 
@@ -6,31 +6,24 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## API
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+The component is connected to the Marvel API. Instead of tag names, enter the names of the heroes, e.g. Hulk, Thor.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Need to create a `.env.local` file in the root directory and add the following: 
+- API_BASE_URL
+- API_PUBLIC_KEY
+- API_PRIVATE_KEY
 
-## Deploy on Vercel
+That environment variables are required to connect to the Marvel API. 
+You can get them by registering on the [Marvel Developer Portal](https://developer.marvel.com/).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+

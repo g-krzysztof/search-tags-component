@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip renders Chip unchanged 1`] = `
+<div>
+  <div
+    alignitems="center"
+    border="grayLightThin"
+    borderradius="rounded"
+    class="sc-8b3de090-0 hpPain"
+    display="flex"
+    justifycontent="space-between"
+    pl="xxs"
+    pr="xxxs"
+    py="xxxs"
+  >
+    <div
+      class="sc-5a158f7a-0 hHFrbZ"
+      color="black"
+      font-size="xm"
+      font-weight="bold"
+    >
+      Test Chip
+    </div>
+    <div
+      class="sc-8b3de090-0 cFhTLI"
+      pl="xxxs"
+    >
+      <div
+        alignitems="center"
+        borderradius="rounded"
+        class="sc-8b3de090-0 kHVuUD sc-628c0d2-0 jCjijW"
+        data-testid="iconButton"
+        display="flex"
+        height="20px"
+        justifycontent="center"
+        variant="bare"
+        width="20px"
+      >
+        <div
+          alignitems="center"
+          class="sc-8b3de090-0 NeWgB sc-b381ab80-0 hzQRJe"
+          color="grayMedium"
+          data-testid="close"
+          display="flex"
+          justifycontent="center"
+          size="24"
+        >
+          <svg
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

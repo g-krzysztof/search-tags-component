@@ -1,46 +1,29 @@
 'use client'
 
 import SearchTags from '@/src/components/SearchTags/SearchTags'
-import SideMenu, { SideMenuProps } from '@/src/components/SideMenu/SideMenu'
+import SideMenu from '@/src/components/SideMenu/SideMenu'
 import isPropValid from '@emotion/is-prop-valid'
 import { StyleSheetManager, ThemeProvider } from 'styled-components'
-import { Box, GlobalStyle, theme } from '../ui/'
-
-const menuItems: SideMenuProps['menuItems'] = [
-  {
-    itemId: '01',
-    iconName: 'info',
-  },
-  {
-    itemId: '02',
-    iconName: 'chat',
-  },
-  {
-    itemId: '03',
-    iconName: 'gear',
-  },
-  {
-    itemId: '04',
-    iconName: 'tag',
-    active: true,
-  },
-  {
-    itemId: '05',
-    iconName: 'user',
-  },
-]
+import { Box, GlobalStyle, theme, Text } from '../ui/'
+import { menuItems } from '@/lib/dummyData'
 
 export default function Home() {
   return (
     <StyleSheetManager shouldForwardProp={shouldForwardProp}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Box display="flex" pl="xxxxl">
+        <Box display="flex" flexDirection="column" pl="xxxxl">
+          <Box pt="xxl">
+            <Text>
+              Komponent jest podpięty pod Marvel API. Zamiast nazw tagów, należy
+              wpisać imiona bohaterów, np. Hulk, Thor.
+            </Text>
+          </Box>
           <Box
             display="flex"
             justifyContent="center"
             alignItems="flex-start"
-            pt="xxxxl"
+            pt="xxxl"
             width="264px"
           >
             <SideMenu menuItems={menuItems} />
@@ -54,8 +37,10 @@ export default function Home() {
   )
 }
 
-// @ts-ignore
-function shouldForwardProp(propName, target) {
+function shouldForwardProp(
+  propName: string,
+  target: string | React.ComponentType,
+): boolean {
   if (typeof target === 'string') {
     // For HTML elements, forward the prop if it is a valid HTML attribute
     return isPropValid(propName)

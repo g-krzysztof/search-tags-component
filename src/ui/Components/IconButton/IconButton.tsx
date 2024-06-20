@@ -30,6 +30,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
       active={active}
       variant={variant}
       onClick={onClick && onClick}
+      data-testid="iconButton"
     >
       <Icon iconName={iconName} color={color} />
     </StyledBox>
