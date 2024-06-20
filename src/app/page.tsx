@@ -1,34 +1,11 @@
 'use client'
 
 import SearchTags from '@/src/components/SearchTags/SearchTags'
-import SideMenu, { SideMenuProps } from '@/src/components/SideMenu/SideMenu'
+import SideMenu from '@/src/components/SideMenu/SideMenu'
 import isPropValid from '@emotion/is-prop-valid'
 import { StyleSheetManager, ThemeProvider } from 'styled-components'
 import { Box, GlobalStyle, theme } from '../ui/'
-
-const menuItems: SideMenuProps['menuItems'] = [
-  {
-    itemId: '01',
-    iconName: 'info',
-  },
-  {
-    itemId: '02',
-    iconName: 'chat',
-  },
-  {
-    itemId: '03',
-    iconName: 'gear',
-  },
-  {
-    itemId: '04',
-    iconName: 'tag',
-    active: true,
-  },
-  {
-    itemId: '05',
-    iconName: 'user',
-  },
-]
+import { menuItems } from '@/lib/dummyData'
 
 export default function Home() {
   return (
@@ -54,8 +31,10 @@ export default function Home() {
   )
 }
 
-// @ts-ignore
-function shouldForwardProp(propName, target) {
+function shouldForwardProp(
+  propName: string,
+  target: string | React.ComponentType,
+): boolean {
   if (typeof target === 'string') {
     // For HTML elements, forward the prop if it is a valid HTML attribute
     return isPropValid(propName)
