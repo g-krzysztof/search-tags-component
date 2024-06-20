@@ -1,4 +1,4 @@
-import { chipsItems, contextMenuItems } from '@/lib/dummyData'
+import { activeTagsMock, contextMenuItemsMock } from '@/lib/dummyData'
 import {
   ContextMenuItem,
   SearchInput,
@@ -9,15 +9,17 @@ import { useEffect, useState } from 'react'
 import { Box, Button, Chip, Divider, IconButton, Text } from '../../ui'
 export interface SearchTagsProps {}
 
+interface Tag {
+  tagId: string
+  label: string
+  score: string
+}
+
 const SearchTags: React.FC<SearchTagsProps> = () => {
-  const [inputValue, setInputValue] = useState('testFill')
-  const [tagsData, setTagsData] = useState<
-    {
-      tagId: string
-      label: string
-      score: string
-    }[]
-  >([])
+  const [inputValue, setInputValue] = useState('')
+  const [activeTags, setActiveTags] = useState(activeTagsMock)
+  const [tagsData, setTagsData] = useState<Tag[]>([])
+  const [listAvailableTags, setListAvailableTags] = useState<Tag[]>([])
 
   useEffect(() => {
     fetch('data.json', {
@@ -30,9 +32,27 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
         return response.json()
       })
       .then(function (tagsData) {
-        setTagsData(tagsData.tags)
+        const newTagsDataArray = [...tagsData.tags]
+        setTagsData(newTagsDataArray)
       })
   }, [])
+
+  useEffect(() => {
+    const activeTagsIds = activeTags.map((tag) => tag.tagId)
+    const tagsDataIds = tagsData.map((tag) => tag.tagId)
+    const availableTagsIds = tagsDataIds.filter(
+      (id) => !activeTagsIds.includes(id),
+    )
+    const availableTags = tagsData.filter((tag) =>
+      availableTagsIds.includes(tag.tagId) ? tag : false,
+    )
+    setListAvailableTags(availableTags)
+  }, [tagsData, activeTags])
+
+  const handleRemoveActiveTag = (tagId: string) => {
+    const newTagsArray = [...activeTags]
+    setActiveTags(newTagsArray.filter((tag) => tag.tagId !== tagId))
+  }
 
   return (
     <Box
@@ -60,14 +80,21 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
       {!inputValue && (
         <>
           <Box display="flex" pt="xxs" pb="xxxs" flexWrap="wrap">
-            {chipsItems.map(({ chipId, label }) => (
-              <Box key={chipId} pr="xxxs" pb="xxxs">
+            {activeTags.map(({ tagId, label }) => (
+              <Box key={tagId} pr="xxxs" pb="xxxs">
                 <Chip
                   label={label}
-                  onClick={() => console.log(`remove tag "${label}"`)}
+                  onClick={() => handleRemoveActiveTag(tagId)}
                 />
               </Box>
             ))}
+            {activeTags.length === 0 && (
+              <Box px="xxs" py="xxxs">
+                <Text fontSize="s" color="redDark" fontWeight="medium">
+                  Wyszukaj i dodaj pierwszy tag
+                </Text>
+              </Box>
+            )}
           </Box>
           <Divider color="grayLight" />
           <Box
@@ -76,24 +103,26 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
             flexDirection="column"
             alignItems="flex-start"
           >
-            {contextMenuItems.map(({ cmItemId, iconName, label, active }) => (
-              <ContextMenuItem
-                key={cmItemId}
-                label={label}
-                onClick={() => console.log({ label })}
-                iconName={iconName}
-                active={active}
-              />
-            ))}
+            {contextMenuItemsMock.map(
+              ({ cmItemId, iconName, label, active }) => (
+                <ContextMenuItem
+                  key={cmItemId}
+                  label={label}
+                  onClick={() => console.log({ label })}
+                  iconName={iconName}
+                  active={active}
+                />
+              ),
+            )}
           </Box>
           <Divider color="grayLight" />
-          <StrengthProgress tagsArray={chipsItems} />
+          <StrengthProgress tagsArray={activeTags} />
         </>
       )}
       {inputValue && (
         <Box display="flex" flexDirection="column">
           <Box display="flex" flexDirection="column" py="xxs">
-            {tagsData.map(({ tagId, label, score }) => (
+            {listAvailableTags.map(({ tagId, label, score }) => (
               <SearchItem
                 key={tagId}
                 label={label}

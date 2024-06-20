@@ -3,7 +3,7 @@ import React from 'react'
 
 interface StrengthProgressProps {
   tagsArray: {
-    chipId: string
+    tagId: string
     label: string
   }[]
 }

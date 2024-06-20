@@ -1,33 +1,64 @@
 import icons from '@/src/ui/Components/Icons/icons'
 
-export const chipsItems = [
+export const activeTagsMock = [
   {
-    chipId: 'chip01',
-    label: 'Maryla Rodowicz',
-  },
-  {
-    chipId: 'chip02',
+    tagId: 'tag01',
     label: 'Gwiazda',
+    score: '+35',
   },
   {
-    chipId: 'chip03',
+    tagId: 'tag02',
     label: 'Sejm',
+    score: '+25',
+  },
+  {
+    tagId: 'tag03',
+    label: 'Mariusz Kamiński',
+    score: '+55',
   },
   // {
-  //   chipId: 'chip04',
-  //   label: 'Mariusz Kamiński',
+  //   tagId: 'tag04',
+  //   label: 'Maryla Rodowicz',
+  //   score: '+40',
   // },
   // {
-  //   chipId: 'chip05',
-  //   label: 'Polska muzyka',
+  //   tagId: 'tag05',
+  //   label: 'Odmrażanie trupa',
+  //   score: '+35',
   // },
   // {
-  //   chipId: 'chip06',
-  //   label: 'Ikona popkultury',
+  //   tagId: 'tag06',
+  //   label: 'Festiwal w Opolu',
+  //   score: '+32',
   // },
+  // {
+  //   tagId: "tag07",
+  //   label: "Legendy polskiej sceny muzycznej",
+  //   score: "+30"
+  // },
+  // {
+  //   tagId: "tag08",
+  //   label: "Przeboje lat 70",
+  //   score: "+26"
+  // },
+  // {
+  //   tagId: "tag09",
+  //   label: "Ikonka popkultury",
+  //   score: "+25"
+  // },
+  // {
+  //   tagId: "tag10",
+  //   label: "Polska muzyka",
+  //   score: "+17"
+  // },
+  // {
+  //   tagId: "tag11",
+  //   label: "Kabaret",
+  //   score: "+12"
+  // }
 ]
 
-export const contextMenuItems: {
+export const contextMenuItemsMock: {
   cmItemId: string
   label: string
   iconName: keyof typeof icons

@@ -16,7 +16,6 @@ export const Chip: React.FC<ChipProps> = ({ label, onClick }) => {
       pr="xxxs"
       py="xxxs"
       borderRadius="rounded"
-      onClick={onClick}
       display="flex"
       justifyContent="space-between"
       alignItems="center"
