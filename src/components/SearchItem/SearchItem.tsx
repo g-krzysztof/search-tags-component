@@ -1,5 +1,5 @@
+import { Box, Checkbox, Text } from '@/src/ui'
 import React, { useState } from 'react'
-import { Box, Text, Checkbox } from '@/src/ui'
 import styled from 'styled-components'
 
 interface SearchItemProps {

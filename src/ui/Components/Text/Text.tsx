@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { color, typography, ColorProps, TypographyProps } from 'styled-system'
 import {
+  Colors,
   FontSizes,
   FontWeights,
   LineHeights,
-  Colors,
 } from '@/src/ui/Theme/interfaces'
+import { ColorProps, TypographyProps, color, typography } from 'styled-system'
 
 interface TextProps extends ColorProps, TypographyProps {
   children: React.ReactNode

@@ -1,20 +1,12 @@
-import {
-  Box,
-  Text,
-  Divider,
-  Chip,
-  IconButton,
-  Button,
-  Checkbox,
-} from '../../ui'
+import { chipsItems, contextMenuItems } from '@/lib/dummyData'
 import {
   ContextMenuItem,
-  StrengthProgress,
   SearchInput,
   SearchItem,
+  StrengthProgress,
 } from '@/src/components'
-import { chipsItems, contextMenuItems } from '@/lib/dummyData'
 import { useEffect, useState } from 'react'
+import { Box, Button, Chip, Divider, IconButton, Text } from '../../ui'
 export interface SearchTagsProps {}
 
 const SearchTags: React.FC<SearchTagsProps> = () => {

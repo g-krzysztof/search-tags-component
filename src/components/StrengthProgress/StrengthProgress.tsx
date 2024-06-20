@@ -1,5 +1,5 @@
+import { Box, Icon, Text } from '@/src/ui'
 import React from 'react'
-import { Box, Text, Icon } from '@/src/ui'
 
 interface StrengthProgressProps {
   tagsArray: {

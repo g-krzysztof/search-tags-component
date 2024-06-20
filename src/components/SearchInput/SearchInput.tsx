@@ -1,5 +1,5 @@
+import { Box, Icon, IconButton, Text } from '@/src/ui'
 import React from 'react'
-import { Box, Text, Icon, IconButton } from '@/src/ui'
 import styled from 'styled-components'
 
 interface SearchInputProps {

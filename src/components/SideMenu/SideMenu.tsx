@@ -1,5 +1,5 @@
-import { Box, IconButton } from '../../ui'
 import icons from '@/src/ui/Components/Icons/icons'
+import { Box, IconButton } from '../../ui'
 
 export interface SideMenuProps {
   menuItems: {

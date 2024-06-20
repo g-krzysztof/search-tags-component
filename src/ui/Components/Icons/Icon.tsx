@@ -1,9 +1,9 @@
+import { FC } from 'react'
 import styled from 'styled-components'
+import { ColorProps, SpaceProps, TypographyProps } from 'styled-system'
+import { Colors } from '../../Theme/interfaces'
 import { Box } from '../Box'
 import icons from './icons'
-import React, { FC } from 'react'
-import { SpaceProps, ColorProps, TypographyProps } from 'styled-system'
-import { Colors } from '../../Theme/interfaces'
 
 interface Icon extends SpaceProps, ColorProps, TypographyProps {
   iconName: keyof typeof icons

@@ -1,6 +1,6 @@
-import React from 'react'
-import { Box, Text, Icon } from '@/src/ui'
+import { Box, Icon, Text } from '@/src/ui'
 import icons from '@/src/ui/Components/Icons/icons'
+import React from 'react'
 import styled from 'styled-components'
 
 interface ChipProps {

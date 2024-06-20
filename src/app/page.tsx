@@ -1,12 +1,10 @@
 'use client'
 
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyle, theme, Box } from '../ui/'
-import { SideMenuProps } from '@/src/components/SideMenu/SideMenu'
-import { StyleSheetManager } from 'styled-components'
-import isPropValid from '@emotion/is-prop-valid'
-import SideMenu from '@/src/components/SideMenu/SideMenu'
 import SearchTags from '@/src/components/SearchTags/SearchTags'
+import SideMenu, { SideMenuProps } from '@/src/components/SideMenu/SideMenu'
+import isPropValid from '@emotion/is-prop-valid'
+import { StyleSheetManager, ThemeProvider } from 'styled-components'
+import { Box, GlobalStyle, theme } from '../ui/'
 
 const menuItems: SideMenuProps['menuItems'] = [
   {

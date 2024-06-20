@@ -1,5 +1,5 @@
-import { Borders } from './interfaces'
 import { colors } from './colors'
+import { Borders } from './interfaces'
 
 export const borders: Borders = {
   // solid

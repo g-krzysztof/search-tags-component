@@ -1,25 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Borders, Radii, Space } from '@/src/ui/Theme/interfaces'
 import {
-  color,
-  space,
-  layout,
-  flexbox,
-  position,
-  typography,
-  border,
-  borderRadius,
-  LayoutProps,
-  PositionProps,
-  ColorProps,
-  SpaceProps,
-  FlexboxProps,
-  TypographyProps,
   BorderProps,
   BorderRadiusProps,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
+  border,
+  borderRadius,
+  color,
+  flexbox,
+  layout,
+  position,
+  space,
+  typography,
 } from 'styled-system'
-import { Borders, Radii, Space } from '@/src/ui/Theme/interfaces'
 
 interface BoxProps
   extends PositionProps,

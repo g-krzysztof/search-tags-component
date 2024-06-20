@@ -1,7 +1,7 @@
+import styled from 'styled-components'
+import { Colors } from '../../Theme/interfaces'
 import { Box } from '../Box'
 import { Text } from '../Text'
-import { Colors } from '../../Theme/interfaces'
-import styled from 'styled-components'
 
 export interface ButtonProps {
   color?: keyof Colors

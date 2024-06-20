@@ -1,8 +1,8 @@
-import { Box } from '../Box'
 import icons from '@/src/ui/Components/Icons/icons'
-import { Icon } from '../Icons'
-import { Colors } from '../../Theme/interfaces'
 import styled from 'styled-components'
+import { Colors } from '../../Theme/interfaces'
+import { Box } from '../Box'
+import { Icon } from '../Icons'
 
 export interface IconButtonProps {
   iconName: keyof typeof icons
