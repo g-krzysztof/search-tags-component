@@ -5,10 +5,10 @@ import {
   SearchItem,
   StrengthProgress,
 } from '@/src/components'
-import { Character, searchCharacters } from '@/utils/api'
 import useDebounce from '@/utils/useDebounce'
 import { useEffect, useState } from 'react'
 import { Box, Button, Chip, Divider, IconButton, Text } from '../../ui'
+import { marvelApiToTagsHelper } from '@/utils/marvelApiToTagsHelper'
 export interface SearchTagsProps {}
 
 export interface TagProps {
@@ -17,18 +17,6 @@ export interface TagProps {
   score: string
   selected?: boolean
 }
-
-const marvelToTags = (data: Character[]) => {
-  const newDataArray = [...data]
-  return newDataArray.map((character) => {
-    return {
-      tagId: character.id,
-      label: character.name,
-      score: character.events.available,
-    }
-  })
-}
-
 const SearchTags: React.FC<SearchTagsProps> = () => {
   const [inputValue, setInputValue] = useState('')
   const [activeTags, setActiveTags] = useState<TagProps[]>([])
@@ -43,8 +31,11 @@ const SearchTags: React.FC<SearchTagsProps> = () => {
       const fetchData = async () => {
         setIsLoading(true)
         try {
-          const data = await searchCharacters(inputValue)
-          setTagsData(marvelToTags(data.results))
+          await fetch(`/api/marvel?query=${inputValue}`)
+            .then((res) => res.json())
+            .then((resData) => {
+              setTagsData(marvelApiToTagsHelper(resData.data.results))
+            })
         } catch (error) {
           console.error(error)
         }
